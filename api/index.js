@@ -8,9 +8,13 @@ const data = require('../data.json');
 app.get('/', (req, res) => {
     res.json(data);
 });
+
 app.get('/api/data', (req, res) => {
     res.json(data);
 });
 
 // Export the app to use as a serverless function
 module.exports = app;
+module.exports = (req, res) => {
+    app(req, res);
+};
